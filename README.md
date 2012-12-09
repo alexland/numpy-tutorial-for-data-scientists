@@ -9,7 +9,9 @@ a,all,also,an,and,any,are,as,at,be,been,but,by,can,do,down,even,every,for,from,h
 
 The first line is of course the *field headers*; the rest are the data points, each data point or row comprised of a number of comma-delimited fields, the last of which is the response variable, a text string, which is the author's name.
 
-    import numpy as NP
+```python
+import numpy as NP
+```
 
 I. Reading the Data in
 
@@ -17,25 +19,30 @@ start by importing the core NumPy library; here i've rebound it to "NP" to keep 
 
 Proper Conversion of this csv file to a NumPy array involves these steps:
 
-	* remove the first line (header) and store it elsewhere
+* remove the first line (header) and store it elsewhere
 
-	* read in each row, interpret each comma as a field delimiter
+* read in each row, interpret each comma as a field delimiter
 	
-	* coerce the data item in each row/field (aka "cell") to the correct data type, which in this case is a float
+* coerce the data item in each row/field (aka "cell") to the correct data type, which in this case is a float
 
-	* convert the last field to an integer and build a look-up table to convert back and forth
+* convert the last field to an integer and build a look-up table to convert back and forth
 
-	* stack the rows to give a 2D NumPy array
+* stack the rows to give a 2D NumPy array
+
 	
 Using NumPy, you can perform all of these steps with a single line of code:
 
-Assume the file has a name and location bound to *fname*
+assume the file has a name and location bound to *fname*
 
-    fname = "/path/to/file/authorship.csv"
+```python 
+fname = "/path/to/file/authorship.csv"
+```
 	
 Then, call NumPy's *loadtxt*.
 
-	Data = NP.loadtxt(fname, delimiter=',', skiprows=1, converters={-1:fnx})
+```python
+Data = NP.loadtxt(fname, delimiter=',', skiprows=1, converters={-1:fnx})
+```
 	
 *loadtxt* has a more complex method signature, but much of the time, these four parameters are all that you will need.
 
@@ -45,15 +52,17 @@ a text string. The *converters* parameter lets us convert any column (aka 'field
 The *converters* parameter takes a python dictionary argument, in which the key is the column number,
 and the value is some user-defined function to convert each item in that column.
 
-	file_obj = open(fname, "r")
-	data = [ row.strip().split(",") for row in file_obj.readlines() ]
-	class_labels = [row[-1] for row in data[1:]]
-	tx = [label for label in enumerate(class_labels)]
-	LuT = dict([ (v, k) for k, v in tx ])
-	fnx = lambda k : LuT[k]
+```python
+file_obj = open(fname, "r")
+data = [ row.strip().split(",") for row in file_obj.readlines() ]
+class_labels = [row[-1] for row in data[1:]]
+tx = [label for label in enumerate(class_labels)]
+LuT = dict([ (v, k) for k, v in tx ])
+fnx = lambda k : LuT[k]
     
-	NP.random.shuffle(data)
-	data, class_labels = NP.hsplit(data, [-1])
+NP.random.shuffle(data)
+data, class_labels = NP.hsplit(data, [-1])
+```
 	
 	
 III. Initial Processing:
