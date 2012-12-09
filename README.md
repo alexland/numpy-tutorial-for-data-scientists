@@ -98,7 +98,7 @@ with open("/path/to/some/file.json", 'rb') as fh:
 
 * visualization via multi-dimensional scaling
 	
-* Clustering
+* clustering
 
 * which variables matter?
 
@@ -107,9 +107,9 @@ with open("/path/to/some/file.json", 'rb') as fh:
     * matrix rank
 
 
-## Various Common Data Manipulations
+## Some Common Data Manipulations
 
-* how many data rows in each class
+* how many data rows in each class?
 	
 * what is the mean and standard deviation for each class?
 	
@@ -118,7 +118,19 @@ with open("/path/to/some/file.json", 'rb') as fh:
 * sort the data by the value of a given column, according to each class
 	
 * random sample 100 data points from the population
+
+* calculate similarity metrics
+
+* run-length encoding (RLE)
+
+* distance matrix (2D array comprised of pair-wise distances)
+
+* finding the data point(s) in a data set closest to a new data point.
 	
 * representing the data as an image
+
+* covariance matrix
+
+
 
 
