@@ -38,7 +38,7 @@ assume the file has a name and location bound to *fname*
 fname = "/path/to/file/authorship.csv"
 ```
 	
-Then, call NumPy's *loadtxt*.
+then call NumPy's *loadtxt*
 
 ```python
 Data = NP.loadtxt(fname, delimiter=',', skiprows=1, converters={-1:fnx})
@@ -67,47 +67,47 @@ data, class_labels = NP.hsplit(data, [-1])
 	
 III. Initial Processing:
 
-	* removing the class labels
+* removing the class labels
 
-	* mean centering, std=1 for all features
+* mean centering, std=1 for all features
 
-	* (e.g., for MLP) all features are rescaled so range is (-1, 1)
+* (e.g., for MLP) all features are rescaled so range is (-1, 1)
 
 
 IV. Some Basic Description Statistics
 
-	* Class Distribution
+* Class Distribution
 
-	* Distribution of each Variable
+* Distribution of each Variable
 	
-	* correlation
+* correlation
 
 
 V. Some Interesting & Useful Things to do With Your Data
 
-	* Visualization via Multi-Dimensional Scaling
+* Visualization via Multi-Dimensional Scaling
 	
-	* Clustering
+* Clustering
 
-	* Which Variables Matter?
+* Which Variables Matter?
 
- 		* PCA, LDA
+    * PCA, LDA
  
- 	   * matrix rank
+    * matrix rank
 
 
 VI. Various Common Data Manipulations
 
-	* how many data rows in each class
+* how many data rows in each class
 	
-	* what is the mean and standard deviation for each class?
+* what is the mean and standard deviation for each class?
 	
-	* Percent of values in col 10 less than 5?
+* Percent of values in col 10 less than 5?
 	
-	* sort the data by the value of a given column, according to each class
+* sort the data by the value of a given column, according to each class
 	
-	* random sample 100 data points from the population
+* random sample 100 data points from the population
 	
-	* representing the data as an image
+* representing the data as an image
 
 
